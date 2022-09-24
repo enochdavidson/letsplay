@@ -1,10 +1,10 @@
-package com.letsplay.admin
+package com.letsplay.example
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class LetsplayAdminApplicationTests {
+class LetsplayExampleApplicationTests {
 
 	@Test
 	fun contextLoads() {

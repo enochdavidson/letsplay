@@ -7,9 +7,9 @@
 		<artifactId>letsplay-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>letsplay-admin</artifactId>
-	<name>letsplay-admin</name>
-	<description>Admin management app for Lets Play</description>
+	<artifactId>letsplay-example</artifactId>
+	<name>letsplay-example</name>
+	<description>Example app for Lets Play</description>
 
 	<dependencies>
 		<dependency>
@@ -27,7 +27,7 @@
 
 		<dependency>
 			<groupId>com.letsplay</groupId>
-			<artifactId>letsplay-core</artifactId>
+			<artifactId>letsplay-realtime</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 
@@ -49,21 +49,6 @@
 			<plugin>
 				<groupId>org.jetbrains.kotlin</groupId>
 				<artifactId>kotlin-maven-plugin</artifactId>
-				<configuration>
-					<args>
-						<arg>-Xjsr305=strict</arg>
-					</args>
-					<compilerPlugins>
-						<plugin>spring</plugin>
-					</compilerPlugins>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.jetbrains.kotlin</groupId>
-						<artifactId>kotlin-maven-allopen</artifactId>
-						<version>${kotlin.version}</version>
-					</dependency>
-				</dependencies>
 			</plugin>
 		</plugins>
 	</build>

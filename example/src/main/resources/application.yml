@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: Let's Play Example

@@ -1,11 +1,11 @@
-package com.letsplay.admin
+package com.letsplay.example
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class LetsplayAdminApplication
+class LetsplayExampleApplication
 
 fun main(args: Array<String>) {
-	runApplication<LetsplayAdminApplication>(*args)
+	runApplication<LetsplayExampleApplication>(*args)
 }

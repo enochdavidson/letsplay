@@ -23,7 +23,33 @@
     <modules>
         <module>core</module>
 		<module>realtime</module>
-        <module>admin</module>
+        <module>example</module>
     </modules>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.jetbrains.kotlin</groupId>
+					<artifactId>kotlin-maven-plugin</artifactId>
+					<configuration>
+						<args>
+							<arg>-Xjsr305=strict</arg>
+						</args>
+						<compilerPlugins>
+							<plugin>spring</plugin>
+						</compilerPlugins>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>org.jetbrains.kotlin</groupId>
+							<artifactId>kotlin-maven-allopen</artifactId>
+							<version>${kotlin.version}</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
 	
 </project>
