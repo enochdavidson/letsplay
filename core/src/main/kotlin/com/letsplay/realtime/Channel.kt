@@ -1,8 +1,9 @@
 package com.letsplay.realtime
 
+import reactor.core.publisher.Mono
+
 /**
- * TODO
- *
+ * Represents a group or a room. Sockets can join and leave the channels.
  */
 interface Channel {
     /**
@@ -16,7 +17,7 @@ interface Channel {
      * @param address the address
      * @param message the message
      */
-    fun publish(address: String, message: Any)
+    fun publish(address: String, message: Any): Mono<Void>
 
     /**
      * Publish message to everyone, except the [sender]
@@ -25,31 +26,31 @@ interface Channel {
      * @param address the address
      * @param message the message
      */
-    fun send(sender: String, address: String, message: Any)
+    fun send(sender: String, address: String, message: Any): Mono<Void>
 
     /**
      * Join [socket] to the channel
      *
      * @param socket the socket to join
      */
-    suspend fun join(socket: String)
+    fun join(socket: String): Mono<Void>
 
     /**
      * Leave out [socket] from the channel
      *
      * @param socket the socket to leave out
      */
-    suspend fun leave(socket: String)
+    fun leave(socket: String): Mono<Void>
 
     /**
      * Get all sockets
      *
      * @return all sockets
      */
-    suspend fun getSockets(): Set<String>
+    suspend fun getSockets(): Mono<Set<String>>
 
     /**
      * Remove all the sockets and delete the channel
      */
-    suspend fun delete()
+    fun delete(): Mono<Void>
 }

@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.letsplay.realtime.impl.RealtimeConfig
+com.letsplay.realtime.config.RealtimeConfig
