@@ -1,3 +1,9 @@
 spring:
   application:
     name: Let's Play Example
+
+letsplay:
+  security:
+    token:
+      secret: my-secret-fdfalkhdafdafdf-jldfjdfsdfdff-ghgfhffghgfhghghgh-ttyryyyeryagghghgfhghgvnb-jgjgj
+      expiration-minutes: 10
