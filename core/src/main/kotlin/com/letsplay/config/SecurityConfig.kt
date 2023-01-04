@@ -1,7 +1,7 @@
 package com.letsplay.config
 
 import com.letsplay.security.LetsplayAuthenticationManager
-import com.letsplay.security.jwt.JwtAuthenticationConverter
+import com.letsplay.security.jwt.JwtServerAuthenticationConverter
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpHeaders
@@ -25,7 +25,7 @@ class SecurityConfig {
     @Bean
     fun mySpringSecurityFilterChain(http: ServerHttpSecurity,
                                     authManager: LetsplayAuthenticationManager,
-                                    authConverter: JwtAuthenticationConverter): SecurityWebFilterChain {
+                                    authConverter: JwtServerAuthenticationConverter): SecurityWebFilterChain {
 
         val authFilter = AuthenticationWebFilter(authManager)
         authFilter.setServerAuthenticationConverter(authConverter)
