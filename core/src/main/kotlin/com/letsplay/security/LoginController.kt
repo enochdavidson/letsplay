@@ -13,8 +13,8 @@ class LoginController(private val loginService: LoginService) {
         return principal.name
     }
 
-    @PostMapping("login/basic")
-    suspend fun basicLogin(@RequestBody request: BasicLoginRequest): Session {
+    @PostMapping("login")
+    suspend fun basicLogin(@RequestBody request: LoginRequest): Session {
         return loginService.basicLogin(request)
     }
 }

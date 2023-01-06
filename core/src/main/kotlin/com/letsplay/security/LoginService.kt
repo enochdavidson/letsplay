@@ -14,10 +14,10 @@ class LoginService(private val userDetailsService: ReactiveUserDetailsService,
                    private val passwordEncoder: PasswordEncoder,
                    private val jwtSupport: JwtSupport) {
 
-    suspend fun basicLogin(request: BasicLoginRequest): Session {
-        val user = userDetailsService.findByUsername(request.username).awaitSingleOrNull()
+    suspend fun basicLogin(request: LoginRequest): Session {
+        val user = userDetailsService.findByUsername(request.identity).awaitSingleOrNull()
         user?.let {
-            if (passwordEncoder.matches(request.password, it.password)) {
+            if (passwordEncoder.matches(request.credential, it.password)) {
                 return Session(
                     UUID.randomUUID().toString(),
                     it.username,
