@@ -1,7 +1,5 @@
 package com.letsplay.realtime
 
-import reactor.core.publisher.Mono
-
 interface Socket {
     /**
      * Id of the socket
@@ -14,17 +12,12 @@ interface Socket {
      * @param address the address
      * @param message the message
      */
-    fun send(address: String, message: Any): Mono<Void>
+    fun send(address: String, message: Any)
 
     /**
      * Get all subscribed channels
      *
      * @return channels
      */
-    fun getChannels(): Mono<Set<String>>
-
-    /**
-     * Disconnect the client
-     */
-    fun disconnect(): Mono<Void>
+    fun getChannels(): Set<String>
 }

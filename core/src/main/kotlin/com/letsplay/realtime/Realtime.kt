@@ -1,7 +1,5 @@
 package com.letsplay.realtime
 
-import reactor.core.publisher.Mono
-
 /**
  * Realtime connection registry to get sockets and channels.
  */
@@ -12,7 +10,7 @@ interface Realtime {
      * @param id socket id
      * @return socket
      */
-    fun getSocket(id: String): Mono<Socket>
+    fun getSocket(id: String): Socket
 
     /**
      * Get a channel by id.
@@ -21,5 +19,9 @@ interface Realtime {
      * @param id channel id
      * @return channel
      */
-    fun getChannel(id: String): Mono<Channel>
+    fun getChannel(id: String): Channel
+
+    fun onSocketConnected(handler: (Socket) -> Unit)
+
+    fun onSocketDisconnected(handler: (Socket) -> Unit)
 }
