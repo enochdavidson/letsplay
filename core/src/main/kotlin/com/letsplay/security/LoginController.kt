@@ -14,7 +14,7 @@ class LoginController(private val loginService: LoginService) {
     }
 
     @PostMapping("login")
-    suspend fun basicLogin(@RequestBody request: LoginRequest): Session {
+    suspend fun login(@RequestBody request: LoginRequest): Session {
         return loginService.basicLogin(request)
     }
 }

@@ -4,7 +4,6 @@ import io.jsonwebtoken.*
 import io.jsonwebtoken.security.Keys
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.authentication.CredentialsExpiredException
-import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.oauth2.server.resource.BearerTokenAuthenticationToken
 import org.springframework.stereotype.Component
 import java.time.Instant
@@ -26,9 +25,9 @@ class JwtSupport {
             .build()
     }
 
-    fun generateToken(user: UserDetails): BearerTokenAuthenticationToken {
+    fun generateToken(username: String): BearerTokenAuthenticationToken {
         val token = Jwts.builder()
-            .setSubject(user.username)
+            .setSubject(username)
             .setIssuedAt(Date.from(Instant.now()))
             .setExpiration(Date.from(Instant.now().plus(expirationMinutes, ChronoUnit.MINUTES)))
             .signWith(Keys.hmacShaKeyFor(secretKey.toByteArray(Charsets.UTF_8)))
@@ -40,10 +39,10 @@ class JwtSupport {
         return parseToken(token).body.subject
     }
 
-    fun isValid(token: BearerTokenAuthenticationToken, user: UserDetails): Boolean {
+    fun isValid(token: BearerTokenAuthenticationToken, username: String): Boolean {
         val jwt = parseToken(token)
         return jwt.body.expiration.after(Date.from(Instant.now()))
-                && jwt.body.subject.equals(user.username)
+                && jwt.body.subject.equals(username)
     }
 
     private fun parseToken(token: BearerTokenAuthenticationToken): Jwt<*, Claims> {

@@ -7,3 +7,7 @@ letsplay:
     token:
       secret: my-secret-fdfalkhdafdafdf-jldfjdfsdfdff-ghgfhffghgfhghghgh-ttyryyyeryagghghgfhghgvnb-jgjgj
       expiration-minutes: 10
+  datasource:
+    url: jdbc:postgresql://localhost:5432/letsplay
+    username: postgres
+    password: cambio123
