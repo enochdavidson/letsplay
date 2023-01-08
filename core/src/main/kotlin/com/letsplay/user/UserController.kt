@@ -1,15 +1,15 @@
 package com.letsplay.user
 
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.messaging.handler.annotation.MessageMapping
+import org.springframework.security.core.annotation.AuthenticationPrincipal
+import org.springframework.stereotype.Controller
+import reactor.core.publisher.Mono
 
-@RestController
-@RequestMapping("api/users")
-class UserController(private val repository: UserRepository) {
+@Controller
+class UserController(private val userService: UserService) {
 
-    @GetMapping("/")
-    suspend fun getAllUsers(): List<User> {
-        return repository.findAll()
+    @MessageMapping("users/me")
+    fun getMe(@AuthenticationPrincipal userId: String): Mono<User> {
+        return userService.findById(userId)
     }
 }

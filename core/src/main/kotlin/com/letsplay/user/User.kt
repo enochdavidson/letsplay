@@ -25,7 +25,7 @@ open class User {
 
     @Column(name = "data", columnDefinition = "jsonb")
     @Type(type = "jsonb")
-    open var data: MutableMap<String, String>? = null
+    open var data: MutableMap<String, String> = mutableMapOf()
 
     @Enumerated
     @Column(name = "role")
