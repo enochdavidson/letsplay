@@ -27,7 +27,7 @@
 
 		<dependency>
 			<groupId>com.letsplay</groupId>
-			<artifactId>letsplay-realtime</artifactId>
+			<artifactId>letsplay-game</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

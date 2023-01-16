@@ -23,7 +23,7 @@
 	
     <modules>
         <module>core</module>
-		<module>realtime</module>
+		<module>game</module>
         <module>example</module>
     </modules>
 
